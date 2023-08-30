@@ -10,10 +10,10 @@ class Square:
 
         Args:
             size (int): size of square
-            position (tuple): coordinates of square
+            position (int, int): coordinates of square
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -32,12 +32,12 @@ class Square:
     @property
     def position(self):
         """:obj:`tuple` of :obj:`int`: coordinates of square """
-        return self.__position
+        return (self.__position)
 
     @position.setter
     def position(self, value):
         if (not isinstance(value, tuple) or len(value) != 2
-                or not all(isinstance(num, value) for num in value)
+                or not all(isinstance(num, int) for num in value)
                 or not all(num >= 0 for num in value)):
             raise TypeError('position must be a tuple of 2 positive integers')
         else:
